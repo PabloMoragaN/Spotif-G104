@@ -66,25 +66,14 @@ public class Client {
 	//TestLogin
 	public boolean login(String mail, String psw){
 		boolean bool=true;
-		if(mail.equals(this.email) && psw.equals(this.password)){
+		if(mail.equals(this.email) && psw.equals(this.password) && isAlphanumeric(mail) && isAlphanumeric(psw)){
 			bool= true;
 		}else {
 		bool= false;
 		}
 		return bool;
 	}
-	//TestAlpha
-	public boolean alphaLogin(String mail,String psw) {
-		boolean bool=false;
-
-		if (isAlphanumeric(mail) && isAlphanumeric(psw)) {
-			bool= true;
-		}else {
-			bool=false;
-		}
-
-		return bool;
-	}
+	
 	public  boolean isAlphanumeric(String s) {
 		for (int i = 0; i < s.length(); i++) {
 			if (!Character.isLetterOrDigit(s.charAt(i))) {
