@@ -1,0 +1,8 @@
+domain\Song.class
+persistence\Admin.class
+presentation\AccountInterface.class
+domain\Album.class
+persistence\CassandraDBBroker.class
+domain\Client.class
+presentation\AdminInterface.class
+domain\Account.class

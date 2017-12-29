@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Account.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TestingG104</a> &gt; <a href="index.source.html" class="el_package">domain</a> &gt; <span class="el_source">Account.java</span></div><h1>Account.java</h1><pre class="source lang-java linenums">package domain;
+import java.util.ArrayList;
+
+public class Account {
+	
+	protected Client cl;
+	protected ArrayList&lt;Song&gt; bought_songs;
+	protected ArrayList&lt;Album&gt; bought_albums;
+	
+<span class="fc" id="L10">	public Account(Client cl){</span>
+<span class="fc" id="L11">		this.cl=cl;</span>
+<span class="fc" id="L12">	}</span>
+
+	public ArrayList&lt;Song&gt; getBought_songs() {
+<span class="nc" id="L15">		return bought_songs;</span>
+	}
+
+	public void setBought_songs(ArrayList&lt;Song&gt; bought_songs) {
+<span class="fc" id="L19">		this.bought_songs = bought_songs;</span>
+<span class="fc" id="L20">	}</span>
+
+	public ArrayList&lt;Album&gt; getBought_albums() {
+<span class="nc" id="L23">		return bought_albums;</span>
+	}
+
+	public void setBought_albums(ArrayList&lt;Album&gt; bought_albums) {
+<span class="fc" id="L27">		this.bought_albums = bought_albums;</span>
+<span class="fc" id="L28">	}</span>
+	
+	//for testing
+	public boolean playSong(Song s){
+<span class="pc bpc" id="L32" title="2 of 10 branches missed.">		if(s!=null &amp;&amp; s.getName()!=null &amp;&amp; s.getDuration()&gt;0 &amp;&amp; s.getDuration()&lt;Long.MAX_VALUE &amp;&amp; this.bought_songs.contains(s)){</span>
+<span class="nc" id="L33">			return true; //user has bought the song</span>
+<span class="pc bpc" id="L34" title="4 of 10 branches missed.">		}else if(albumHasSong(s) &amp;&amp; s!=null &amp;&amp; s.getName()!=null &amp;&amp; s.getDuration()&gt;0 &amp;&amp; s.getDuration()&lt;Long.MAX_VALUE ){</span>
+<span class="fc" id="L35">			return true;</span>
+		}else{
+<span class="fc" id="L37">			return false;</span>
+		}
+	}
+	
+	public boolean albumHasSong(Song s){
+		int i;
+<span class="fc" id="L43">		boolean check=false;</span>
+<span class="fc" id="L44">		boolean bool=true;</span>
+<span class="pc bpc" id="L45" title="1 of 8 branches missed.">		if(s!=null &amp;&amp; s.getName()!=null &amp;&amp; s.getDuration()&gt;0 &amp;&amp; s.getDuration()&lt;Long.MAX_VALUE) {</span>
+<span class="pc bpc" id="L46" title="1 of 4 branches missed.">			for(i=0;i&lt;this.bought_albums.size() &amp;&amp; bool==true;i++){</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">				if(this.bought_albums.get(i).hasSong(s)){</span>
+<span class="fc" id="L48">					check= true;</span>
+<span class="fc" id="L49">					bool=false;</span>
+				}
+			}
+		}
+<span class="fc" id="L53">		return check;</span>
+	
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

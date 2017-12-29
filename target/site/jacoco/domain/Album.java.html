@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Album.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TestingG104</a> &gt; <a href="index.source.html" class="el_package">domain</a> &gt; <span class="el_source">Album.java</span></div><h1>Album.java</h1><pre class="source lang-java linenums">package domain;
+import java.util.ArrayList;
+
+public class Album {
+
+	protected String name, artist;
+<span class="fc" id="L7">	protected ArrayList&lt;Song&gt;track_list=new ArrayList&lt;Song&gt;();</span>
+
+<span class="fc" id="L9">	public Album(String name, String artist, ArrayList&lt;Song&gt;track_list){</span>
+<span class="fc" id="L10">		this.name=name;</span>
+<span class="fc" id="L11">		this.artist=artist;</span>
+<span class="fc" id="L12">		this.track_list=track_list;</span>
+<span class="fc" id="L13">	}</span>
+
+	public String getName() {
+<span class="nc" id="L16">		return name;</span>
+	}
+
+	public void setName(String name) {
+<span class="nc" id="L20">		this.name = name;</span>
+<span class="nc" id="L21">	}</span>
+
+	public String getArtist() {
+<span class="nc" id="L24">		return artist;</span>
+	}
+
+	public void setArtist(String artist) {
+<span class="nc" id="L28">		this.artist = artist;</span>
+<span class="nc" id="L29">	}</span>
+
+	public ArrayList&lt;Song&gt; getTrack_list() {
+<span class="nc" id="L32">		return track_list;</span>
+	}
+
+	public void setTrack_list(ArrayList&lt;Song&gt; track_list) {
+<span class="nc" id="L36">		this.track_list = track_list;</span>
+<span class="nc" id="L37">	}</span>
+	
+	//for testing
+	public boolean hasSong(Song s){
+<span class="fc" id="L41">		boolean check=false;</span>
+<span class="fc" id="L42">		boolean bool = true;</span>
+<span class="fc bfc" id="L43" title="All 4 branches covered.">		for(int i=0;i&lt;track_list.size() &amp;&amp; bool==true;i++){</span>
+<span class="fc bfc" id="L44" title="All 6 branches covered.">			if(s!=null &amp;&amp; s.getName()!=null &amp;&amp; s.getDuration()&gt;0) {</span>
+<span class="pc bpc" id="L45" title="1 of 4 branches missed.">				if(track_list.get(i).getName().equals(s.getName()) &amp;&amp; track_list.get(i).getDuration()==s.getDuration() ){</span>
+<span class="fc" id="L46">					check=true;</span>
+<span class="fc" id="L47">					bool=false;</span>
+<span class="fc" id="L48">				}else{</span>
+<span class="fc" id="L49">					check=false;</span>
+				}
+			}
+		}
+<span class="fc" id="L53">		return check;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
