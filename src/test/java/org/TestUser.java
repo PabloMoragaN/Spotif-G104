@@ -40,12 +40,12 @@ public class TestUser {
 		
 		@Test
 		public void testLogin3() {
-			assertTrue(cl1.alphaLogin("gmailDotCom", "1234a"));//TRUE
+			assertTrue(cl1.login("gmailDotCom", "1234a"));//TRUE
 		}
 		
 		@Test
 		public void testLogin4() {
-			assertFalse(cl1.alphaLogin("gmai!DotC^m", "123*4-a"));//TRUE
+			assertFalse(cl1.login("gmai!DotC^m", "123*4-a"));//TRUE
 		}
 			
 		
