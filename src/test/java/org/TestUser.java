@@ -38,10 +38,6 @@ public class TestUser {
 			assertFalse(cl1.login("bluewolf.com","w10"));//TRUE
 		}
 		
-		@Test
-		public void testLogin3() {
-			assertTrue(cl1.login("gmailDotCom", "1234a"));//TRUE
-		}
 		
 		@Test
 		public void testLogin4() {
