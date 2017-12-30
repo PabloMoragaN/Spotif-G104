@@ -1,29 +1,27 @@
 package domain;
 
 public class Song {
-	
-	protected String name;
-	protected long duration; //seconds
-	
-	public Song(String name,long duration){
-		this.name=name;
-		this.duration=duration;
-	}
+    private String name;
+    private long duration; //seconds
 
-	public String getName() {
-		return name;
-	}
+    public Song(final String name, final long duration) {
+        this.name = name;
+        this.duration = duration;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public long getDuration() {
-		return duration;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setDuration(long duration) {
-		this.duration = duration;
-	}
-	
+    public long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(long duration) {
+        this.duration = duration;
+    }
 }

@@ -9,22 +9,20 @@ public class Client {
 	private String password;
 	private boolean premium;
 	private String creditCardNum;
-	private String payPalAcc;
-	private Account spotifAccount;
 	private List<Email> receivedEmails = new ArrayList<Email>();
 
-	public Client(final String mail, final String pswd){
-		this.email=mail;
-		this.password=password;
-	}
-	
-	public Client(final String mail, final String pswd,ArrayList<Email>receivedEmails){
-		this.email=mail;
-		this.password=password;
-		this.receivedEmails=receivedEmails;
+	public Client(final String mail, final String pswd) {
+		this.email = mail;
+		this.password = pswd;
 	}
 
-	public boolean isPremium(){
+	public Client(final String mail, final String pswd, ArrayList<Email> receivedEmails) {
+		this.email = mail;
+		this.password = pswd;
+		this.receivedEmails = receivedEmails;
+	}
+
+	public boolean isPremium() {
 		return premium;
 	}
 
@@ -64,28 +62,17 @@ public class Client {
 	}
 
 	//TestLogin
-	public boolean login(String mail, String psw){
-		boolean bool=true;
-		if(mail.equals(this.email) && psw.equals(this.password)){
-			bool= true;
-		}else {
-		bool= false;
+	public boolean login(String mail, String psw) {
+		boolean bool = true;
+		if (mail.equals(this.email) && psw.equals(this.password) && isAlphanumeric(mail) && isAlphanumeric(psw)) {
+			bool = true;
+		} else {
+			bool = false;
 		}
 		return bool;
 	}
-	//TestAlpha
-	public boolean alphaLogin(String mail,String psw) {
-		boolean bool=false;
 
-		if (isAlphanumeric(mail) && isAlphanumeric(psw)) {
-			bool= true;
-		}else {
-			bool=false;
-		}
-
-		return bool;
-	}
-	public  boolean isAlphanumeric(String s) {
+	public boolean isAlphanumeric(String s) {
 		for (int i = 0; i < s.length(); i++) {
 			if (!Character.isLetterOrDigit(s.charAt(i))) {
 				return false;
@@ -93,10 +80,4 @@ public class Client {
 		}
 		return true;
 	}
-
-
-	
-	
-	//TEST
-		
 }

@@ -75,21 +75,5 @@ public class TestPlaySong {
 		Song song = new Song("Odd Look",249);
 		assertFalse(ac1.playSong(song));
 	}
-	
-	@Test	//Checks if album bought has song
-	public void testAlbumHasSong6() {
-		Song song = new Song("The Tempest",180);
-		assertTrue(ac1.albumHasSong(song));
-	}
-	
-	@Test	//Checks if album bought has song
-	public void testAlbumHasSong7() {
-		Song song = new Song("Dreams",2660);
-		assertFalse(ac1.albumHasSong(song));
-	}
-	@Test
-	public void testAlbumHasSong8() {
-		assertFalse(ac1.albumHasSong(null));
-	}
 
 }

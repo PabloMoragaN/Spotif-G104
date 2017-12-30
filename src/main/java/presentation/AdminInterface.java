@@ -1,5 +1,3 @@
 package presentation;
 
-public class AdminInterface {
-
-}
+public class AdminInterface { }
