@@ -4,5 +4,7 @@ presentation\AccountInterface.class
 domain\Album.class
 persistence\CassandraDBBroker.class
 domain\Client.class
+domain\Email.class
+domain\Server.class
 presentation\AdminInterface.class
 domain\Account.class
