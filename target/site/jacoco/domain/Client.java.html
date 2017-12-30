@@ -9,95 +9,76 @@ public class Client {
 	private String password;
 	private boolean premium;
 	private String creditCardNum;
-	private String payPalAcc;
-	private Account spotifAccount;
-<span class="pc" id="L14">	private List&lt;Email&gt; receivedEmails = new ArrayList&lt;Email&gt;();</span>
+<span class="pc" id="L12">	private List&lt;Email&gt; receivedEmails = new ArrayList&lt;Email&gt;();</span>
 
-<span class="fc" id="L16">	public Client(final String mail, final String pswd){</span>
-<span class="fc" id="L17">		this.email=mail;</span>
-<span class="fc" id="L18">		this.password=password;</span>
-<span class="fc" id="L19">	}</span>
-	
-<span class="nc" id="L21">	public Client(final String mail, final String pswd,ArrayList&lt;Email&gt;receivedEmails){</span>
-<span class="nc" id="L22">		this.email=mail;</span>
-<span class="nc" id="L23">		this.password=password;</span>
-<span class="nc" id="L24">		this.receivedEmails=receivedEmails;</span>
-<span class="nc" id="L25">	}</span>
+<span class="fc" id="L14">	public Client(final String mail, final String pswd) {</span>
+<span class="fc" id="L15">		this.email = mail;</span>
+<span class="fc" id="L16">		this.password = pswd;</span>
+<span class="fc" id="L17">	}</span>
 
-	public boolean isPremium(){
-<span class="nc" id="L28">		return premium;</span>
+<span class="nc" id="L19">	public Client(final String mail, final String pswd, ArrayList&lt;Email&gt; receivedEmails) {</span>
+<span class="nc" id="L20">		this.email = mail;</span>
+<span class="nc" id="L21">		this.password = pswd;</span>
+<span class="nc" id="L22">		this.receivedEmails = receivedEmails;</span>
+<span class="nc" id="L23">	}</span>
+
+	public boolean isPremium() {
+<span class="nc" id="L26">		return premium;</span>
 	}
 
 	public String getEmail() {
-<span class="nc" id="L32">		return email;</span>
+<span class="nc" id="L30">		return email;</span>
 	}
 
 	public void setEmail(String email) {
-<span class="fc" id="L36">		this.email = email;</span>
-<span class="fc" id="L37">	}</span>
+<span class="fc" id="L34">		this.email = email;</span>
+<span class="fc" id="L35">	}</span>
 
 	public String getPassword() {
-<span class="nc" id="L40">		return password;</span>
+<span class="nc" id="L38">		return password;</span>
 	}
 
 	public void setPassword(String password) {
-<span class="fc" id="L44">		this.password = password;</span>
-<span class="fc" id="L45">	}</span>
+<span class="fc" id="L42">		this.password = password;</span>
+<span class="fc" id="L43">	}</span>
 
 	public String getCreditCardNum() {
-<span class="nc" id="L48">		return creditCardNum;</span>
+<span class="nc" id="L46">		return creditCardNum;</span>
 	}
 
 	public void setCreditCardNum(String creditCardNum) {
-<span class="nc" id="L52">		this.creditCardNum = creditCardNum;</span>
-<span class="nc" id="L53">	}</span>
+<span class="nc" id="L50">		this.creditCardNum = creditCardNum;</span>
+<span class="nc" id="L51">	}</span>
 
 	public void setPremium(boolean premium) {
-<span class="nc" id="L56">		this.premium = premium;</span>
-<span class="nc" id="L57">	}</span>
+<span class="nc" id="L54">		this.premium = premium;</span>
+<span class="nc" id="L55">	}</span>
 	public List&lt;Email&gt; getReceivedEmails() {
-<span class="fc" id="L59">		return receivedEmails;</span>
+<span class="fc" id="L57">		return receivedEmails;</span>
 	}
 
 	public void setReceivedEmails(List&lt;Email&gt; receivedEmails) {
-<span class="fc" id="L63">		this.receivedEmails = receivedEmails;</span>
-<span class="fc" id="L64">	}</span>
+<span class="fc" id="L61">		this.receivedEmails = receivedEmails;</span>
+<span class="fc" id="L62">	}</span>
 
 	//TestLogin
-	public boolean login(String mail, String psw){
-<span class="fc" id="L68">		boolean bool=true;</span>
-<span class="pc bpc" id="L69" title="1 of 4 branches missed.">		if(mail.equals(this.email) &amp;&amp; psw.equals(this.password)){</span>
-<span class="fc" id="L70">			bool= true;</span>
-<span class="fc" id="L71">		}else {</span>
-<span class="fc" id="L72">		bool= false;</span>
+	public boolean login(String mail, String psw) {
+<span class="fc" id="L66">		boolean bool = true;</span>
+<span class="pc bpc" id="L67" title="3 of 8 branches missed.">		if (mail.equals(this.email) &amp;&amp; psw.equals(this.password) &amp;&amp; isAlphanumeric(mail) &amp;&amp; isAlphanumeric(psw)) {</span>
+<span class="fc" id="L68">			bool = true;</span>
+		} else {
+<span class="fc" id="L70">			bool = false;</span>
 		}
-<span class="fc" id="L74">		return bool;</span>
+<span class="fc" id="L72">		return bool;</span>
 	}
-	//TestAlpha
-	public boolean alphaLogin(String mail,String psw) {
-<span class="fc" id="L78">		boolean bool=false;</span>
 
-<span class="pc bpc" id="L80" title="1 of 4 branches missed.">		if (isAlphanumeric(mail) &amp;&amp; isAlphanumeric(psw)) {</span>
-<span class="fc" id="L81">			bool= true;</span>
-<span class="fc" id="L82">		}else {</span>
-<span class="fc" id="L83">			bool=false;</span>
-		}
-
-<span class="fc" id="L86">		return bool;</span>
-	}
-	public  boolean isAlphanumeric(String s) {
-<span class="fc bfc" id="L89" title="All 2 branches covered.">		for (int i = 0; i &lt; s.length(); i++) {</span>
-<span class="fc bfc" id="L90" title="All 2 branches covered.">			if (!Character.isLetterOrDigit(s.charAt(i))) {</span>
-<span class="fc" id="L91">				return false;</span>
+	public boolean isAlphanumeric(String s) {
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		for (int i = 0; i &lt; s.length(); i++) {</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">			if (!Character.isLetterOrDigit(s.charAt(i))) {</span>
+<span class="nc" id="L78">				return false;</span>
 			}
 		}
-<span class="fc" id="L94">		return true;</span>
+<span class="fc" id="L81">		return true;</span>
 	}
-
-
-	
-	
-	//TEST
-		
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

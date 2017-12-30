@@ -2,74 +2,70 @@
 
 import domain.*;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class CassandraDBBroker {
+<span class="nc" id="L8"> private ArrayList&lt;Account&gt; accounts_conected = new ArrayList&lt;Account&gt;();</span>
 
-	protected CassandraDBBroker instance;
-<span class="nc" id="L10">	protected ArrayList&lt;Account&gt; accounts_conected = new ArrayList&lt;Account&gt;();</span>
+<span class="nc" id="L10"> public CassandraDBBroker() { }</span>
 
-<span class="nc" id="L12">	public CassandraDBBroker(){</span>
-<span class="nc" id="L13">	}</span>
+ public void simulateFunctionality() {
+	 //Simulate creation of a client
+<span class="nc" id="L14">	 String mail = &quot;gmailDotCom&quot;;</span>
+<span class="nc" id="L15">	 String password = &quot;1234a&quot;;</span>
+<span class="nc" id="L16">	 Client cl1 = new Client(mail, password);</span>
+	 //Account for the client
+<span class="nc" id="L18">	 Account ac1 = new Account(cl1);</span>
+	 //Connect the account to the DB
+<span class="nc" id="L20">	 this.accounts_conected.add(ac1);</span>
+	 ///////song and album//////
+<span class="nc" id="L22">	 Song s1 = new Song(&quot;Despacito&quot;, 1000);</span>
+<span class="nc" id="L23">	 Song s2 = new Song(&quot;New rules&quot;, 2000);</span>
+<span class="nc" id="L24">	 Song s3 = new Song(&quot;Si te vas&quot;, 1200);</span>
+<span class="nc" id="L25">	 ArrayList&lt;Song&gt; lista = new ArrayList&lt;Song&gt;();</span>
+<span class="nc" id="L26">	 lista.add(s2);</span>
+<span class="nc" id="L27">	 lista.add(s3);</span>
+<span class="nc" id="L28">	 Album album1 = new Album(&quot;TestAlbum&quot;, &quot;Los Chichos&quot;, lista);</span>
 
-	public void simulateFunctionality(){
-		//Simulate creation of a client
-<span class="nc" id="L17">		String mail=&quot;gmailDotCom&quot;;</span>
-<span class="nc" id="L18">		String password=&quot;1234a&quot;;</span>
-<span class="nc" id="L19">		Client cl1 = new Client(mail,password);</span>
-		//Account for the client
-<span class="nc" id="L21">		Account ac1=new Account(cl1);</span>
-		//Conect the account to the DB
-<span class="nc" id="L23">		this.accounts_conected.add(ac1);</span>
-		///////song and album//////
-<span class="nc" id="L25">		Song s1 = new Song(&quot;Despacito&quot;,1000);</span>
-<span class="nc" id="L26">		Song s2 = new Song(&quot;New rules&quot;,2000);</span>
-<span class="nc" id="L27">		Song s3 = new Song(&quot;Si te vas&quot;,1200);</span>
-<span class="nc" id="L28">		ArrayList&lt;Song&gt;lista=new ArrayList&lt;Song&gt;();</span>
-<span class="nc" id="L29">		lista.add(s2);</span>
-<span class="nc" id="L30">		lista.add(s3);</span>
-<span class="nc" id="L31">		Album album1 = new Album(&quot;TestAlbum&quot;,&quot;Los Chichos&quot;,lista);</span>
-		
-		//////menu/////
-<span class="nc" id="L34">		boolean menu=false;</span>
-<span class="nc" id="L35">		int option=0;</span>
-<span class="nc" id="L36">		Scanner sc = new  Scanner(System.in);</span>
-		do{
-<span class="nc" id="L38">			System.out.println(&quot;1- Play song&quot;);</span>
-<span class="nc" id="L39">			System.out.println(&quot;2- Buy song&quot;);</span>
-<span class="nc" id="L40">			System.out.println(&quot;3- Buy Album&quot;);</span>
-<span class="nc" id="L41">			System.out.println(&quot;4- Exit Spotif*&quot;);</span>
+	 //////menu/////
+<span class="nc" id="L31">	 boolean menu = false;</span>
+<span class="nc" id="L32">	 int option = 0;</span>
+	 do {
+<span class="nc" id="L34">		 System.out.println(&quot;1- Play song&quot;);</span>
+<span class="nc" id="L35">		 System.out.println(&quot;2- Buy song&quot;);</span>
+<span class="nc" id="L36">		 System.out.println(&quot;3- Buy Album&quot;);</span>
+<span class="nc" id="L37">		 System.out.println(&quot;4- Exit Spotif*&quot;);</span>
 
-<span class="nc bnc" id="L43" title="All 5 branches missed.">			switch(option){</span>
-			case 1:
-<span class="nc" id="L45">				System.out.println(&quot;Play s1,s2, or s3?&quot;);</span>
-				//Supose s1 which he has bought
-<span class="nc" id="L47">				ac1.playSong(s1);</span>
-<span class="nc" id="L48">				break;</span>
-			case 2:
-<span class="nc" id="L50">				System.out.println(&quot;Buy s1,s2, or s3&quot;);</span>
-				//Lets say he buys s1 only
-<span class="nc" id="L52">				ArrayList&lt;Song&gt;bought=new ArrayList&lt;Song&gt;();</span>
-<span class="nc" id="L53">				bought.add(s1);</span>
-<span class="nc" id="L54">				ac1.setBought_songs(bought);</span>
-<span class="nc" id="L55">				break;</span>
-			case 3:
-				//We only have 1 album so he buys this one
-<span class="nc" id="L58">				System.out.println(&quot;Buy &quot;+album1.getName()+&quot; ?&quot;);</span>
-				//Supose yes
-<span class="nc" id="L60">				ArrayList&lt;Album&gt;boughtAlb=new ArrayList&lt;Album&gt;();</span>
-<span class="nc" id="L61">				boughtAlb.add(album1);</span>
-<span class="nc" id="L62">				ac1.setBought_albums(boughtAlb);</span>
-<span class="nc" id="L63">				break;</span>
-			case 4:
-<span class="nc" id="L65">				menu=true;</span>
-<span class="nc" id="L66">				break;</span>
-			default:
-<span class="nc" id="L68">				System.out.println(&quot;Choose one option please&quot;);</span>
-				break;
-			}
-<span class="nc bnc" id="L71" title="All 2 branches missed.">		}while(!menu);</span>
-<span class="nc" id="L72">	}</span>
-
+<span class="nc bnc" id="L39" title="All 5 branches missed.">		 switch (option) {</span>
+		 case 1:
+<span class="nc" id="L41">			 System.out.println(&quot;Play s1,s2, or s3?&quot;);</span>
+			 //Suppose s1 which he has bought
+<span class="nc" id="L43">			 System.out.println(&quot;&quot; + ac1.playSong(s1));</span>
+<span class="nc" id="L44">			 break;</span>
+		 case 2:
+<span class="nc" id="L46">			 System.out.println(&quot;Buy s1,s2, or s3&quot;);</span>
+			 //Lets say he buys s1 only
+<span class="nc" id="L48">			 ArrayList&lt;Song&gt; bought = new ArrayList&lt;Song&gt;();</span>
+<span class="nc" id="L49">			 bought.add(s1);</span>
+<span class="nc" id="L50">			 ac1.setBought_songs(bought);</span>
+<span class="nc" id="L51">			 break;</span>
+		 case 3:
+			 //We only have 1 album so he buys this one
+<span class="nc" id="L54">			 System.out.println(&quot;Buy &quot; + album1.getName() + &quot; ?&quot;);</span>
+			 //Supose yes
+<span class="nc" id="L56">			 ArrayList&lt;Album&gt; boughtAlb = new ArrayList&lt;Album&gt;();</span>
+<span class="nc" id="L57">			 boughtAlb.add(album1);</span>
+<span class="nc" id="L58">			 ac1.setBought_albums(boughtAlb);</span>
+<span class="nc" id="L59">			 break;</span>
+		 case 4:
+<span class="nc" id="L61">			 menu = true;</span>
+<span class="nc" id="L62">			 break;</span>
+		 default:
+<span class="nc" id="L64">			 System.out.println(&quot;Choose one option please&quot;);</span>
+			 break;
+		 }
+<span class="nc bnc" id="L67" title="All 2 branches missed.">	 } while (!menu);</span>
+<span class="nc" id="L68"> }</span>
+ 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
